@@ -19,6 +19,17 @@
 .header .inner-menu > ul > li {
   margin-left: 20px;
 }
+.header .inner-menu a {
+  text-decoration: none;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.header .inner-menu a:hover {
+  background-color: rgb(227, 227, 227);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
 .box-head .inner-title {
   color: green;
 }
@@ -40,6 +51,9 @@
   overflow: hidden;
 }
 
+.product-items .inner-title {
+  min-height: 48px;
+}
 .product-items .inner-image {
   width: 100%;
   aspect-ratio: 4/3;

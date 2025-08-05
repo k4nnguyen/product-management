@@ -2,8 +2,17 @@ extend ../../layouts/default.pug
 block main 
     h1 #{pageTitle}
 
-    table.table.table-hover.table-sm
-        thead 
+    .card.mb-3
+        .card-header Bộ lọc và tìm kiếm 
+        .card-body
+            each item in filterStatus 
+                button(
+                    class = `btn btn-sm ms-1 btn-outline-success ${item.class}`
+                    button-status=`${item.status}` 
+                ) #{item.name}
+
+    table.table.table-hover.table-sm.mb-3
+        thead
             tr 
                 th STT 
                 th Hình ảnh 

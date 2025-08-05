@@ -1,4 +1,4 @@
-// Router for home page
+// Router for Admin Dashboard page
 const express = require("express");
 const router = express.Router();
 const controller = require("../../controllers/admin/dashboard.controller");

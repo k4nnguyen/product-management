@@ -1,4 +1,4 @@
-// Main route to group all others routes
+// Main route to group all others client routes
 const homeRoutes = require("./home.route");
 const productRoutes = require("./products.route");
 module.exports = (app) => {

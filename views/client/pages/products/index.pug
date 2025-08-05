@@ -13,6 +13,7 @@ block main
                             img(src=item.thumbnail, alt=item.title)
                         .inner-content
                             .h3.inner-title #{item.title} 
+                            // Set Discount Priced 
                             .inner-price-new $#{(item.price *(1-item.discount*0.01)).toFixed(2)}
                             .inner-price-old $#{item.price}
                             .inner-price-discount -#{item.discount}%

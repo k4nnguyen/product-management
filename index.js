@@ -2,6 +2,7 @@
 require("dotenv").config();
 const express = require("express");
 const routes = require("./routes/client/index.route");
+const routesAdmin = require("./routes/admin/index.route");
 const port = process.env.PORT;
 const app = express();
 const database = require("./config/database");
@@ -14,6 +15,7 @@ database.connect();
 
 // Routes
 routes(app);
+routesAdmin(app);
 
 // Check port status
 app.listen(port, () => {

@@ -27,11 +27,12 @@
   transition: all 0.3s ease;
 }
 .header .inner-menu a:hover {
-  background-color: rgb(227, 227, 227);
+  background-color: rgb(253, 253, 253);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 .box-head .inner-title {
   color: green;
+  margin-bottom: 30px;
 }
 /* End Header */
 
@@ -49,8 +50,14 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
+.product-items:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
 .product-items .inner-title {
   min-height: 48px;
 }

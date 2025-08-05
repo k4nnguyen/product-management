@@ -1,4 +1,20 @@
-# 🛍️ Cấu trúc thư mục
+# 🛍️ Product Management App
+
+Một ứng dụng quản lý sản phẩm đơn giản xây dựng bằng **Node.js**, **Express**, **MongoDB** và **Pug**. Giao diện chia làm hai phần: người dùng và quản trị viên.
+
+---
+
+## 🚀 Chức năng chính
+
+- Trang client: hiển thị danh sách sản phẩm
+- Trang admin: quản lý sản phẩm, dashboard
+- Tách biệt rõ ràng giữa route, controller, view
+
+---
+
+## 📁 Cấu trúc thư mục
+
+```plaintext
 product-management/
 ├── .gitignore                  # Bỏ qua các file/thư mục không đẩy lên GitHub (vd: node_modules, .env)
 ├── index.js                   # File khởi chạy chính của ứng dụng

@@ -1,11 +1,12 @@
+// Set up for display active/inactive product
 const button = document.querySelectorAll("[button-status]");
+let url = new URL(window.location.href);
 if (button.length > 0) {
-  let url = new URL(window.location.href);
-  console.log(url);
+  // Nếu có button, sẽ duyệt qua url
   button.forEach((btn) => {
     btn.addEventListener("click", () => {
+      // Kiểm tra trạng thái, nếu đang có trạng thái sẽ set, còn không thì delete -> thay url bằng url của button
       const status = btn.getAttribute("button-status");
-      console.log(status);
       if (status) {
         url.searchParams.set("status", status);
       } else {
@@ -13,5 +14,23 @@ if (button.length > 0) {
       }
       window.location.href = url.href;
     });
+  });
+}
+
+// Set up for searching product
+
+const productSearch = document.querySelector("#form-search");
+if (productSearch) {
+  productSearch.addEventListener("submit", (s) => {
+    // To prevent reload from page
+    s.preventDefault();
+    const keyword = s.target.elements.keyword.value;
+
+    if (keyword) {
+      url.searchParams.set("keyword", keyword);
+    } else {
+      url.searchParams.delete("keyword");
+    }
+    window.location.href = url.href;
   });
 }

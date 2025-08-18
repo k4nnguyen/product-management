@@ -1,6 +1,7 @@
 // [GET] /admin/product
 const Product = require("../../models/product.model");
 const filterStatusHelper = require("../../helpers/filterStatus");
+const searchHelper = require("../../helpers/search");
 module.exports.products = async (req, res) => {
   // Mảng chứa các trạng thái của button
   const filterStatus = filterStatusHelper(req.query);
@@ -15,18 +16,18 @@ module.exports.products = async (req, res) => {
     find.inactive = false;
   }
 
-  let keyword = "";
-  if (req.query.keyword) {
-    keyword = req.query.keyword;
-    // Tạo ra biến regex để tìm các từ có chứa substring, "i" để 0 phân biệt chữ hoa/thường
-    const regex = new RegExp(keyword, "i");
-    find.title = regex;
+  // Nhúng searchHelper vào, nếu có keyword mới tìm theo regex, không thì tìm tất cả
+  const objectSearch = searchHelper(req.query);
+  if (objectSearch.keyword) {
+    find.title = objectSearch.regex;
   }
+
   const products = await Product.find(find);
+
   res.render("admin/pages/products/index", {
     pageTitle: "Trang Sản Phẩm",
     products: products,
     filterStatus: filterStatus,
-    keyword: keyword,
+    keyword: objectSearch.keyword,
   });
 };

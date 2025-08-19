@@ -28,6 +28,8 @@ if (productSearch) {
 
     if (keyword) {
       url.searchParams.set("keyword", keyword);
+      url.searchParams.set("page", 1);
+      // Always Set Page = 1
     } else {
       url.searchParams.delete("keyword");
     }

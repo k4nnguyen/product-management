@@ -7,6 +7,10 @@ const port = process.env.PORT;
 const app = express();
 const database = require("./config/database");
 const systemConfig = require("./config/system");
+var methodOverride = require("method-override");
+
+// Using method like patch, ...
+app.use(methodOverride("_method"));
 // Set up folder, view engine and database
 app.use(express.static("public"));
 app.set("views", "./views");

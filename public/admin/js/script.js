@@ -9,8 +9,10 @@ if (button.length > 0) {
       const status = btn.getAttribute("button-status");
       if (status) {
         url.searchParams.set("status", status);
+        url.searchParams.set("page", 1);
       } else {
         url.searchParams.delete("status");
+        url.searchParams.set("page", 1);
       }
       window.location.href = url.href;
     });

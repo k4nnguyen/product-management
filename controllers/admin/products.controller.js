@@ -1,7 +1,8 @@
-// [GET] /admin/product
 const Product = require("../../models/product.model");
 const filterStatusHelper = require("../../helpers/filterStatus");
 const searchHelper = require("../../helpers/search");
+// To display products
+// [GET] /admin/product
 module.exports.products = async (req, res) => {
   // Mảng chứa các trạng thái của button
   const filterStatus = filterStatusHelper(req.query);
@@ -47,4 +48,19 @@ module.exports.products = async (req, res) => {
     keyword: objectSearch.keyword,
     pagination: objectPagination,
   });
+};
+
+// [GET] /admin/products/change-status/:status/:id
+module.exports.changeStatus = async (req, res) => {
+  const status = req.params.status;
+  const id = req.params.id;
+
+  // Đổi trạng thái hoạt động của 1 sản phẩm
+  let check = false;
+  if (status == "inactive") check = true;
+  await Product.updateOne({ _id: id }, { inactive: check });
+
+  // Tự động refresh lại trang
+  let resetURL = req.get("Referrer") || "/admin/products";
+  res.redirect(resetURL);
 };
